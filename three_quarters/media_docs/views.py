@@ -7,11 +7,9 @@ from .models import Book, Journal, Comics
 
 
 class BooksView(View):
-
     queryset = Book.objects.all().select_related("uploaded_by")
 
     def get(self, request):
-
         return render(
             request,
             "items_list.html",
@@ -37,15 +35,15 @@ class BooksView(View):
     #         return render(request, "add_book.html", {"form": form})
 
 
- class DetailBookView(View):
-     def get(self, request, book_slug: str):
-         return render(
-             request,
-             "show_item.html",
-             {
-                 "item": get_object_or_404(Book, slug=book_slug),
-             },
-         )
+class DetailBookView(View):
+    def get(self, request, book_slug: str):
+        return render(
+            request,
+            "show_item.html",
+            {
+                "item": get_object_or_404(Book, slug=book_slug),
+            },
+        )
 
 
 class JournalView(View):
@@ -115,12 +113,14 @@ class Add_book(View):
         author = request.POST.get('author')
         year = request.POST.get('year')
         file = request.FILES.get('file')
+        image = request.FILES.get('image')
 
         book = Book.objects.create(
             title=title,
             author=author,
             year=year,
             file=file,
+            image=image,
         )
 
         return redirect('books')

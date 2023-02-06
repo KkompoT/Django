@@ -9,9 +9,10 @@ from django.conf import settings
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="home.html")),
+    path("books/add", views.Add_book.as_view(), name="add_book"),
     path("books/<slug:book_slug>", views.DetailBookView.as_view(), name="show-book"),
     path("books/", views.BooksView.as_view(), name="books"),
-    path("books/add", views.Add_book.as_view(), name="add_book"),
+
 
     path("journal/<slug:journal_slug>", views.DetailJournalView.as_view(), name="show-journal"),
     path("journal/", views.JournalView.as_view(), name="journal"),

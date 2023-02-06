@@ -40,8 +40,13 @@
 
 
             <div class="mb-3">
-                <label for="id-file" class="form-lable">Image</label>
-                <input type="file" name="file" class="form-control" id="id-year">
+                <label for="id-file" class="form-lable">Файл</label>
+                <input type="file" name="file" class="form-control" id="id-file">
+            </div>
+
+             <div class="mb-3">
+                <label for="id-image" class="form-lable">Image</label>
+                <input class="form-control" type="file" id="id-image" >
             </div>
                 <a href="{% url 'books' %}" class="text-decoration-none">
                 <button type="submit" class="btn btn-primary">
