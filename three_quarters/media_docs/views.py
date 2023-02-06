@@ -37,15 +37,15 @@ class BooksView(View):
     #         return render(request, "add_book.html", {"form": form})
 
 
-# class DetailBookView(View):
-#     def get(self, request, book_slug: str):
-#         return render(
-#             request,
-#             "show_item.html",
-#             {
-#                 "item": get_object_or_404(Book, slug=book_slug),
-#             },
-#         )
+ class DetailBookView(View):
+     def get(self, request, book_slug: str):
+         return render(
+             request,
+             "show_item.html",
+             {
+                 "item": get_object_or_404(Book, slug=book_slug),
+             },
+         )
 
 
 class JournalView(View):
